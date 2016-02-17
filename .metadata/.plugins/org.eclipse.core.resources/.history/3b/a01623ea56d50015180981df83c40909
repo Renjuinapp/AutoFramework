@@ -1,0 +1,19 @@
+package com.org.mavenStudy.mavenproject.Action;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.org.mavenStudy.mavenproject.Homepageobject;
+
+public class HomepageAction {
+
+	public static WebDriver driver= new ChromeDriver();
+
+	
+public void clickOnProperty(){
+	
+	Homepageobject home =new Homepageobject(driver)	;
+	home.lnkProperties.click();
+}
+	
+}

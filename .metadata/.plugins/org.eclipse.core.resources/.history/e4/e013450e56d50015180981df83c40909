@@ -1,0 +1,30 @@
+package com.org.mavenStudy.mavenproject.Action;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.org.mavenStudy.mavenproject.LoginpageObject;
+
+public  class LoginPageAction {
+	public static WebDriver driver= new ChromeDriver();
+	/**
+	 * Login to the Reliant application 
+	 * @param: Username 
+	 * @param: Password 
+	 * 
+	 */
+	
+	public void applogin(String userName,String Password){
+		
+		LoginpageObject login=new LoginpageObject(driver);
+		
+		login.username.sendKeys(userName);
+		
+		login.password.sendKeys(Password);
+		
+		login.btnlogin.click();
+	}
+	
+	
+	
+}

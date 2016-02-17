@@ -1,0 +1,14 @@
+package com.org.mavenStudy.mavenproject;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class POMLogin {
+	
+		
+	@FindBy(xpath="//*[@name='UserName']")
+	public WebElement username;
+	
+	@FindBy(xpath="//*[@id='Password']")
+	public WebElement password;
+}

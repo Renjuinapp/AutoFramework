@@ -1,0 +1,25 @@
+package com.org.mavenStudy.mavenproject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.org.mavenStudy.mavenproject.Action.LoginPageAction;
+
+@Test
+public class Testcase001 {
+	
+	
+	public void Login(){
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Automation\\Reliant\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.navigate().to("http://23.96.61.6/");
+		
+		LoginPageAction login=new LoginPageAction();
+		
+		login.applogin("rajee.setty@gmail.com","reliant1");
+		
+	}
+}
+
