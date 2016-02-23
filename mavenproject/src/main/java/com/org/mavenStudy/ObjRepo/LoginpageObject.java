@@ -1,14 +1,12 @@
 package com.org.mavenStudy.ObjRepo;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginpageObject {
+public class LoginpageObject extends PageObjects{
 
-	public LoginpageObject(WebDriver driver) {
-		PageFactory.initElements(driver, this);
+	public LoginpageObject() {
+		
 	}
 
 	@FindBy(xpath = "//*[@name='UserName']")
@@ -34,6 +32,7 @@ public class LoginpageObject {
 		password.sendKeys(Password);
 
 		btnlogin.click();
+		
 		return new Homepageobject();
 
 	}

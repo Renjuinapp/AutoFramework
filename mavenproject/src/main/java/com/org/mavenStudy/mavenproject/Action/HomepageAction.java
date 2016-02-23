@@ -8,7 +8,7 @@ import com.org.mavenStudy.ObjRepo.Homepageobject;
 public class HomepageAction {
 
 	public static WebDriver driver= new ChromeDriver();
-	Homepageobject home =new Homepageobject(driver)	;
+	//Homepageobject home =new Homepageobject(driver)	;
 	
 
 	

@@ -7,7 +7,7 @@ import com.org.mavenStudy.ObjRepo.LoginpageObject;
 
 public  class LoginPageAction {
 	public static WebDriver driver= new ChromeDriver();
-	LoginpageObject login=new LoginpageObject(driver);	
+//	LoginpageObject login=new LoginpageObject(driver);	
 	
 	
 	
