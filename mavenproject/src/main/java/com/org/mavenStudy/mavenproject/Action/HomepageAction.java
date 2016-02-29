@@ -3,7 +3,7 @@ package com.org.mavenStudy.mavenproject.Action;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.org.mavenStudy.ObjRepo.Homepageobject;
+import com.org.framework.ObjRepo.Homepageobject;
 
 public class HomepageAction {
 
