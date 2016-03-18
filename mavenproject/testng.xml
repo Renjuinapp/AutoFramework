@@ -2,10 +2,19 @@
 
 <suite name="Complete Suite">
 
-	<suite-files>
-<!-- If you have more test suites, Please add them bellow. -->
-   		<suite-file path="./RegressionSuite.xml" />
-   	  
-  </suite-files>
+	<test name="Testcase001" allow-return-values="true">
+    <classes>
+        <class name="com.org.Suite.RegressionSuite.Testcase001" ></class>  
+    </classes>
+</test>
+
+<test name="Testcase002" allow-return-values="true">
+    <classes>
+        <class name="com.org.Suite.RegressionSuite.Testcase002" ></class>  
+    </classes>
+</test>
+  <listeners>
+        <listener class-name="Listner.ConsoleTraceLogListener" />
+  </listeners>
   
  </suite>

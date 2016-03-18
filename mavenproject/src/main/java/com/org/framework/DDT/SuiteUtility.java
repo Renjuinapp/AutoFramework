@@ -3,15 +3,7 @@ package com.org.framework.DDT;
 public class SuiteUtility {	
 	
 	public static boolean checkToRunUtility(Read_XLS xls, String sheetName, String ToRun, String testSuite){
-				
-		boolean Flag = false;		
-		if(xls.retrieveToRunFlag(sheetName,ToRun,testSuite).equalsIgnoreCase("y")){
-			Flag = true;
-		}
-		else{
-			Flag = false;
-		}
-		return Flag;		
+		return xls.retrieveToRunFlag(sheetName,ToRun,testSuite).equalsIgnoreCase("y");	
 	}
 	
 	public static String[] checkToRunUtilityOfData(Read_XLS xls, String sheetName, String ColName){		

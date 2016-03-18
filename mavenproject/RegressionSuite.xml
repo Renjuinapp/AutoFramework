@@ -3,16 +3,6 @@
 
 <!-- If add more test cases In this suite, You need to add them as bellow. -->
 
-<test name="Testcase001">
-    <classes>
-        <class name="com.org.Suite.RegressionSuite.Testcase001" ></class>  
-    </classes>
-</test>
 
-<test name="Testcase002">
-    <classes>
-        <class name="com.org.Suite.RegressionSuite.Testcase002" ></class>  
-    </classes>
-</test>
 
 </suite>
