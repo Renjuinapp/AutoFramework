@@ -11,6 +11,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.org.framework.DDT.Read_XLS;
 import com.org.framework.DDT.SuiteUtility;
@@ -22,7 +23,6 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class RegressionTestBase extends SuiteBase  {
 
-	public static WebDriver driver;
 	public static ExtentTest    log; 
 	private static ExtentReports extent;
 	public String ToRunColumnNameTestCase = "CaseToRun";
@@ -31,6 +31,7 @@ public class RegressionTestBase extends SuiteBase  {
 	String SheetName = null;
 	String SuiteName = null;
 	String ToRunColumnName = null;	
+	
 	@BeforeSuite
 	public void checkSuiteToRun() throws IOException{
 		//Called init() function from SuiteBase class to Initialize .xls Files
@@ -51,25 +52,15 @@ public class RegressionTestBase extends SuiteBase  {
 		}
 		init();	
 		FilePath = RegressionSuiteListExcel;
-		driver=new FirefoxDriver();
-		driver.manage().window().maximize();	
-		driver.get(PropertyUtil.getConfigProps().getProperty("AppURL"));
+		
 			
 
 	}
 	
-	@BeforeTest
-	public void beforetest() throws IOException{
-		
-		System.setProperty("webdriver.chrome.driver", "D:\\Automation\\Reliant\\chromedriver.exe");
-		
-		
-	}
-		
 	
 	@AfterSuite
 	public static void afterSuite(){
-		System.out.println("Entered to After Suites>>>>>>>>>>>>>");
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Entered to After Suites>>>>>>>>>>>>>>>>>>>>>>>");
 		driver.quit();
 	}
 	
