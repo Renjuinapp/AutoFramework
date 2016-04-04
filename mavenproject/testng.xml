@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ 
+ <!--
+ <?xml version="1.0" encoding="UTF-8"?>
 
-<suite name="Complete Suite">
+<suite name="Complete Suite" parallel="classes" thread-count="2">
 
 	<test name="Testcase001" allow-return-values="true">
     <classes>
@@ -17,4 +19,24 @@
         <listener class-name="Listner.ConsoleTraceLogListener" />
   </listeners>
   
- </suite>
+ </suite> 
+ -->
+ 
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" >
+  <test name="Test 1">
+  <parameter name="browser" value="Chrome"/>
+     <classes>
+      <class name="com.org.Suite.RegressionSuite.Testcase001"/>
+    	<class name="com.org.Suite.RegressionSuite.Testcase002"/>
+    </classes>
+  </test>
+ 
+ <!--  <test name="Test 2">
+   <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="com.org.Suite.RegressionSuite.Testcase001"/>
+          <class name="com.org.Suite.RegressionSuite.Testcase002"/> 
+    </classes>
+  </test> -->
+</suite>

@@ -19,13 +19,15 @@ public class Homepageobject extends PageObjects{
 	
 
 	
-	public void clickOnProperty(){
-		
+	public void clickOnProperty() throws InterruptedException{
+	//WaitForPageLoad();
+	waitForElementVisible(lnkProperties, 4);
 	lnkProperties.click();
 	
 	}
 	
 	public void UserlogOut(){
+		WaitForElementClikable(logout, 15);
 		logout.click();
 	}
 	

@@ -22,12 +22,12 @@ public class LoginpageObject extends PageObjects{
 	
 	/**
 	 * Login to the Reliant application
-	 * 
+	 * @author: renju
 	 * @param: Username
 	 * @param: Password
 	 * 
 	 */
-	public Homepageobject applogin(String userName, String Password) {
+	public Homepageobject SuperAdmin(String userName, String Password) {
 		
 		username.sendKeys(userName);
 		
@@ -37,6 +37,18 @@ public class LoginpageObject extends PageObjects{
 		
 		return new Homepageobject();
 
+	}
+	
+	public SelectPropertyPageObject Managerlogin(String userName, String Password){
+		
+		username.sendKeys(userName);
+		
+		password.sendKeys(Password);
+
+		btnlogin.click();
+		
+		return new SelectPropertyPageObject();
+		
 	}
 
 }

@@ -120,6 +120,7 @@ public class ConsoleTraceLogListener extends TestListenerAdapter implements ISui
 				tr.getParameters() == null || tr.getParameters().length == 0 ? "" : Arrays.toString(tr.getParameters()), 
 				tr.getThrowable() == null ? "" : tr.getThrowable().getMessage(),
 				tr.getThrowable() == null ? "" : ExceptionUtils.getStackTrace(tr.getThrowable()));
+		addToExtentReport(tr, LogStatus.FAIL);
 	}
 
 	@Override

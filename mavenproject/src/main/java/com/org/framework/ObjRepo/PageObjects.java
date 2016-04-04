@@ -4,8 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.org.Suite.RegressionSuite.RegressionTestBase;
+import com.org.suiteTestSuitBase.SuiteBase;
 
-public class PageObjects {
+public class PageObjects extends SuiteBase{
 
 	public static WebDriver driver;
 	
