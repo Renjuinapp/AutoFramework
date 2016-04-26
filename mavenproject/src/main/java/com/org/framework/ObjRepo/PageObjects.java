@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.org.Suite.RegressionSuite.RegressionTestBase;
+import com.org.framework.Util.CommonSeleniumUtil;
 import com.org.suiteTestSuitBase.SuiteBase;
 
-public class PageObjects extends SuiteBase{
+public class PageObjects extends SuiteBase  {
+	SuiteBase suite =new SuiteBase();
 
-	public static WebDriver driver;
-	
-	public PageObjects() {
-		driver = RegressionTestBase.driver;
+public PageObjects() {
+		driver=suite.driver;
 		PageFactory.initElements(driver, this);
 	}
 }

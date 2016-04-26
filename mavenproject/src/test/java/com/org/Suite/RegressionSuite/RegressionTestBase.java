@@ -59,7 +59,7 @@ public class RegressionTestBase extends SuiteBase  {
 	
 	
 	@AfterSuite
-	public static void afterSuite(){
+	public void afterSuite(){
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Entered to After Suites>>>>>>>>>>>>>>>>>>>>>>>");
 		driver.quit();
 	}

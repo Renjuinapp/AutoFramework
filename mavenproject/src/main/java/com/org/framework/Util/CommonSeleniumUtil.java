@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.org.suiteTestSuitBase.SuiteBase;
 
-public class CommonSeleniumUtil {
+public class CommonSeleniumUtil extends SuiteBase{
 	
-	public static WebDriver driver;
+	
 	
 	public void TestAlert (String alertText) throws InterruptedException { 
 		//Generating Alert Using Javascript Executor 
@@ -75,10 +75,14 @@ public class CommonSeleniumUtil {
 	    }
 	}
 	
-	public void waitForElementVisible(WebElement element,long sec) {
+	public void waitForElementVisible(WebElement element,long sec,WebDriver driver) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, sec); 
-		wait.until(ExpectedConditions.visibilityOf(element));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, sec); 
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (Exception e) {
+			System.out.println("After Waiting"+ sec +"Element is not Clikable at this point" );
+		}
 		}
 	
 }

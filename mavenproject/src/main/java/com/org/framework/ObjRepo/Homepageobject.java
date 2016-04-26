@@ -1,13 +1,23 @@
 package com.org.framework.ObjRepo;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class Homepageobject extends PageObjects{
+import com.org.framework.Util.CommonSeleniumUtil;
+import com.org.suiteTestSuitBase.SuiteBase;
 
-	public Homepageobject(){
+public class Homepageobject extends CommonSeleniumUtil{
+
+	
+	
+	
+public Homepageobject(WebDriver driver) {
 		
+		PageFactory.initElements(driver, this);
 	}
+
 	
 	@FindBy(xpath="//a[text()='Log Out']")
 	public WebElement logout;
@@ -19,13 +29,15 @@ public class Homepageobject extends PageObjects{
 	
 
 	
-	public void clickOnProperty() throws InterruptedException{
+	public void clickOnProperty(WebDriver driver) throws InterruptedException{
 	//WaitForPageLoad();
-	waitForElementVisible(lnkProperties, 4);
+	waitForElementVisible(lnkProperties, 20,driver);
 	lnkProperties.click();
 	
 	}
 	
+	
+
 	public void UserlogOut(){
 		WaitForElementClikable(logout, 15);
 		logout.click();

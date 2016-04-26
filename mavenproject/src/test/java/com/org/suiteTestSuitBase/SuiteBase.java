@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Parameters;
@@ -24,7 +25,7 @@ import com.org.framework.DDT.Read_XLS;
 import com.org.framework.Util.CommonSeleniumUtil;
 import com.org.framework.Util.PropertyUtil;
 
-public class SuiteBase extends CommonSeleniumUtil{	
+public class SuiteBase {	
 	private static final Logger logger = LoggerFactory.getLogger(CommonSeleniumUtil.class);
 	public static Read_XLS TestSuiteListExcel=null;
 	public static Read_XLS RegressionSuiteListExcel =null;
@@ -32,6 +33,7 @@ public class SuiteBase extends CommonSeleniumUtil{
 	public static WebDriver ExistingchromeBrowser;
 	public static WebDriver ExistingmozillaBrowser;
 	public static WebDriver ExistingIEBrowser;
+	public  WebDriver driver;
 	public  void  init() throws IOException{
 		
 		//Initializing Test Suite List(TestSuiteList.xls) File Path Using Constructor Of Read_XLS Utility Class.
@@ -87,6 +89,9 @@ public class SuiteBase extends CommonSeleniumUtil{
 		
 }
 	
+    public SuiteBase() {
+		PageFactory.initElements(driver, this);
+	}	
 	public void closeWebBrowser(){
 		driver.quit();
 	}

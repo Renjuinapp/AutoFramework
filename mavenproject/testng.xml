@@ -23,14 +23,17 @@
  -->
  
  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel test suite" >
+<suite name="Parallel test suite"  >
   <test name="Test 1">
   <parameter name="browser" value="Chrome"/>
      <classes>
       <class name="com.org.Suite.RegressionSuite.Testcase001"/>
-    	<class name="com.org.Suite.RegressionSuite.Testcase002"/>
+	<class name="com.org.Suite.RegressionSuite.Testcase002"/> 
     </classes>
   </test>
+   <listeners>
+        <listener class-name="Listner.ConsoleTraceLogListener" />
+  </listeners>
  
  <!--  <test name="Test 2">
    <parameter name="browser" value="Chrome"/>

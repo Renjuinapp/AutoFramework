@@ -2,6 +2,7 @@ package com.org.Suite.RegressionSuite;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -15,6 +16,7 @@ import com.org.framework.DDT.SuiteUtility;
 //SuiteOneCaseOne Class Inherits From SuiteOneBase Class.
 //So, SuiteOneCaseOne Class Is Child Class Of SuiteOneBase Class And SuiteBase Class.
 public class Testcase003 extends RegressionTestBase{
+
 	Read_XLS FilePath = null;
 	String SheetName = null;
 	String TestCaseName = null;	
@@ -90,23 +92,23 @@ public class Testcase003 extends RegressionTestBase{
 	}
 	
 	//@AfterMethod method will be executed after execution of @Test method every time.
-	@AfterMethod
-	public void reporterDataResults(){		
-		if(Testskip)
-			//If found Testskip = true, Result will be reported as SKIP against data set line In excel sheet.
-			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "SKIP");
-		else if(Testfail){
-			//To make object reference null after reporting In report.
-			s_assert = null;
-			//If found Testfail = true, Result will be reported as FAIL against data set line In excel sheet.
-			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "FAIL");			
-		}else
-			//If found Testskip = false and Testfail = false, Result will be reported as PASS against data set line In excel sheet.
-			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "PASS");
-		//At last make both flags as false for next data set.
-		Testskip=false;
-		Testfail=false;
-	}
+//	@AfterMethod
+//	public void reporterDataResults(){		
+//		if(Testskip)
+//			//If found Testskip = true, Result will be reported as SKIP against data set line In excel sheet.
+//			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "SKIP");
+//		else if(Testfail){
+//			//To make object reference null after reporting In report.
+//			s_assert = null;
+//			//If found Testfail = true, Result will be reported as FAIL against data set line In excel sheet.
+//			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "FAIL");			
+//		}else
+//			//If found Testskip = false and Testfail = false, Result will be reported as PASS against data set line In excel sheet.
+//			SuiteUtility.WriteResultUtility(FilePath, TestCaseName, "Pass/Fail/Skip", DataSet+1, "PASS");
+//		//At last make both flags as false for next data set.
+//		Testskip=false;
+//		Testfail=false;
+//	}
 	
 	//This data provider method will return 4 column's data one by one In every Iteration.
 	@DataProvider

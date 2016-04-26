@@ -1,11 +1,15 @@
 package com.org.Suite.RegressionSuite;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.net.MalformedURLException;
+import java.util.Arrays;
 
-import junit.framework.Assert;
-
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.poi.hssf.record.IterationRecord;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
@@ -18,6 +22,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Listner.ConsoleTraceLogListener;
+
 import com.google.common.base.Verify;
 import com.org.framework.DDT.Read_XLS;
 import com.org.framework.DDT.SuiteUtility;
@@ -27,11 +33,11 @@ import com.org.framework.Screenshot.ScreenShots;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class Testcase001 extends RegressionTestBase {
-
+	ConsoleTraceLogListener report =new ConsoleTraceLogListener();
+	
 	ITestResult result;
 	RegressionTestData TestData = new RegressionTestData();
 	private SoftAssert softassert = new SoftAssert();
-
 	@Parameters({ "browser" })
 	@BeforeTest
 	public void setup(String browser) throws MalformedURLException {
@@ -62,23 +68,23 @@ public class Testcase001 extends RegressionTestBase {
 
 		try {
 			System.out.println("<<<<<<<<<<<<<<<<<<<< Entered to the testing parts ONE  >>>>>>>>>>>");
-			LoginpageObject login = new LoginpageObject();
-			Homepageobject home = login.SuperAdmin(Username, Password);
-			// TestAlert("Successfullt Logged in to the System");
-			home.clickOnProperty();
-			String title = driver.getTitle();
+			String title =driver.getTitle();
+			System.out.println("Title of the page"+title);
+			LoginpageObject login = new LoginpageObject(driver);
+			
+			Homepageobject home = login.SuperAdmin(Username, Password,driver);
+			home.clickOnProperty(driver);
+			title =driver.getTitle();
 			System.out.println("Title is >>>>>>>>" + title);
-			// Assert.assertTrue(title.equals("PropertiesReliant Parking"));
-			// Verify.verify(title.equals("Properties  Reliant Parking"),
-			// "Validation Error", "Renju Test");
-			softassert.assertEquals(title, "Properties  Reliant Parking");
+			
+			AssertJUnit.assertEquals(title, "Properties  Reliant Parking");
 			softassert.assertAll();
 			home.UserlogOut();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Homepageobject home = new Homepageobject();
-			home.UserlogOut();
+//			Homepageobject home = new Homepageobject();
+//			home.UserlogOut();
 		}
 
 	}
@@ -91,9 +97,14 @@ public class Testcase001 extends RegressionTestBase {
 		System.out.println("String name of the Method >>>>>>>>>>>" + name);
 		return SuiteUtility.GetTestDataUtility(FilePath, name);
 	}
+	
 	@AfterTest
-	public void tearDown(){
+	public void tearDown(ITestResult tr){
 		System.out.println("<<<<<<<<<<<<<<<<<<<< Entered to the Tear down parts ONE  >>>>>>>>>>>"+driver.getCurrentUrl());
+		int Status;
+		Status=tr.getStatus();
+		System.out.println("Staus of the Test Run >>>>>>>>>>>>>>>>>>>"+Status);
 		closeWebBrowser();
 	}
+	
 }

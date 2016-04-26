@@ -1,24 +1,21 @@
 package com.org.framework.ObjRepo;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginpageObject extends PageObjects{
 
-	public LoginpageObject() {
+public LoginpageObject(WebDriver driver) {
 		
+		PageFactory.initElements(driver, this);
 	}
+	@FindBy(xpath = "//*[@name='UserName']") 	public WebElement username;
+	@FindBy(xpath = "//*[@id='Password']")   	public WebElement password;
+	@FindBy(id = "btnSubmit")					public WebElement btnlogin;	
 
-	@FindBy(xpath = "//*[@name='UserName']")
-	public WebElement username;
-
-	@FindBy(xpath = "//*[@id='Password']")
-	public WebElement password;
-
-	@FindBy(id = "btnSubmit")
-	public WebElement btnlogin;
-
-	
+		
 	
 	/**
 	 * Login to the Reliant application
@@ -27,7 +24,7 @@ public class LoginpageObject extends PageObjects{
 	 * @param: Password
 	 * 
 	 */
-	public Homepageobject SuperAdmin(String userName, String Password) {
+	public Homepageobject SuperAdmin(String userName, String Password,WebDriver driver) {
 		
 		username.sendKeys(userName);
 		
@@ -35,11 +32,11 @@ public class LoginpageObject extends PageObjects{
 
 		btnlogin.click();
 		
-		return new Homepageobject();
+		return new Homepageobject(driver);
 
 	}
 	
-	public SelectPropertyPageObject Managerlogin(String userName, String Password){
+	public SelectPropertyPageObject Managerlogin(String userName, String Password,WebDriver driver){
 		
 		username.sendKeys(userName);
 		
@@ -47,7 +44,7 @@ public class LoginpageObject extends PageObjects{
 
 		btnlogin.click();
 		
-		return new SelectPropertyPageObject();
+		return new SelectPropertyPageObject(driver);
 		
 	}
 

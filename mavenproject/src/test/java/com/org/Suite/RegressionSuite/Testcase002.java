@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import junit.framework.Assert;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
@@ -24,6 +25,7 @@ import com.relevantcodes.extentreports.LogStatus;
 //SuiteOneCaseOne Class Inherits From SuiteOneBase Class.
 //So, SuiteOneCaseOne Class Is Child Class Of SuiteOneBase Class And SuiteBase Class.
 public class Testcase002 extends RegressionTestBase{
+
 	Read_XLS FilePath = null;	
 	String TestCaseName = null;
 	
@@ -60,8 +62,8 @@ public class Testcase002 extends RegressionTestBase{
 	@Test
 	public void Testcase002Test() throws Exception{
 		System.out.println("<<<<<<<<<<<<<<<<<<<< Entered to the testing parts TWO  >>>>>>>>>>>");
-		LoginpageObject login =new LoginpageObject();
-		SelectPropertyPageObject selectPropety =login.Managerlogin("demo@reliantparking.com", "reliant1");
+		LoginpageObject login =new LoginpageObject(driver);
+		SelectPropertyPageObject selectPropety =login.Managerlogin("demo@reliantparking.com", "reliant1",driver);
 		Thread.sleep(4000);
 		selectPropety.SwitchToPropety("1 ADD ISSUE");
 		

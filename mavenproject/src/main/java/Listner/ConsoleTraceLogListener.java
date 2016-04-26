@@ -36,7 +36,7 @@ public class ConsoleTraceLogListener extends TestListenerAdapter implements ISui
 
 	private static final Logger logger = LoggerFactory.getLogger(ConsoleTraceLogListener.class);
 	
-	public static WebDriver driver;
+	
 	private ExtentReports extent;
 	ExtentTest Report;
 	public Properties prop =new Properties();
@@ -73,6 +73,7 @@ public class ConsoleTraceLogListener extends TestListenerAdapter implements ISui
 
 	
 	private void addToExtentReport(ITestResult tr, LogStatus status) {
+		System.out.println("Renju's message >>>>>>>>>>"+tr);
 		Report = extent.startTest(tr.getMethod().getMethodName());
 		Report.setStartedTime(getTime(tr.getStartMillis()));
 		Report.setEndedTime(getTime(tr.getEndMillis()));
@@ -80,7 +81,7 @@ public class ConsoleTraceLogListener extends TestListenerAdapter implements ISui
 			Report.assignCategory(group);
 		if (tr.getThrowable() != null) {
 			Report.log(status, tr.getThrowable());
-			Report.log(status, "Screencast below: " + Report.addScreenCapture(ScreenShots.createScreenshot(RegressionTestBase.driver, tr.getName())));
+			//Report.log(status, "Screencast below: " + Report.addScreenCapture(ScreenShots.createScreenshot(driver, tr.getName())));
 		}	
 		else {
 			Report.log(status, status.toString().toLowerCase() + "ed");
